@@ -1,9 +1,8 @@
 //
 //  LSTPhotoDisplayView.m
-//  哈林教育
 //
-//  Created by qqqq on 16/4/21.
-//  Copyright © 2016年 sks. All rights reserved.
+//  Created by LST on 17/5/5.
+//  Copyright © 2017年 lst. All rights reserved.
 //
 
 #import "LSTPhotoDisplayView.h"
@@ -144,23 +143,23 @@ static LSTPhotoDisplayView * photoDisplayView = nil;
         // 3. 展示图片
         if (isImageUrl) {
             // 3.1 展示网络图片
-//            [imageView sd_setImageWithURL:[imageArr objectAtIndex:i] placeholderImage:[UIImage imageNamed:@"defaultImg"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-//                if (!image) {
-//                    image = [UIImage imageNamed:@"defaultImg"];
-//                }
-//                
-//                // 4. 获取图片及宽高比例
-//                CGFloat imageScale = image.size.width / image.size.height;
-//                CGFloat displayScale = displayView.bounds.size.width / displayView.bounds.size.height;
-//                if (displayScale > imageScale) {
-//                    //图片偏高
-//                    [displayView setMaximumZoomScale:WIDTH/(HEIGHT*imageScale)];
-//                    
-//                } else {
-//                    //图片偏宽
-//                    [displayView setMaximumZoomScale:HEIGHT/WIDTH*imageScale];
-//                }
-//            }];
+           [imageView sd_setImageWithURL:[imageArr objectAtIndex:i] placeholderImage:[UIImage imageNamed:@"defaultImg"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+               if (!image) {
+                   image = [UIImage imageNamed:@"defaultImg"];
+               }
+               
+               // 4. 获取图片及宽高比例
+               CGFloat imageScale = image.size.width / image.size.height;
+               CGFloat displayScale = displayView.bounds.size.width / displayView.bounds.size.height;
+               if (displayScale > imageScale) {
+                   //图片偏高
+                   [displayView setMaximumZoomScale:WIDTH/(HEIGHT*imageScale)];
+                   
+               } else {
+                   //图片偏宽
+                   [displayView setMaximumZoomScale:HEIGHT/WIDTH*imageScale];
+               }
+           }];
         } else {
             // 3.2 展示本地图片
             UIImage *image = [UIImage imageNamed:[imageArr objectAtIndex:i]];
